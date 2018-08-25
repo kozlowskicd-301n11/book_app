@@ -1,0 +1,48 @@
+body {
+    background-color: darkred;
+    width: 100%;
+    
+}
+h1 {
+    background-color: black;
+    color: antiquewhite;
+    width: 100%;
+    height: 60px;
+}
+h2 {
+    text-align: center;
+    background-color: darkslategrey;
+}
+img {
+    width: 70%;
+    margin-top: 10px;
+}
+ul {
+    text-align: center;
+    width: 60%;
+    background-color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+ul li {
+    width: 50%;
+    display: inline-block;
+    margin: 5px 0px 2px 0px;
+}
+.title {
+    font-size: 25px;
+}
+.author {
+    font-size: 15px;
+    color: aliceblue;
+}
+ul a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    line-height: 50px;
+}
