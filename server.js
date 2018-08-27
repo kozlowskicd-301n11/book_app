@@ -32,11 +32,19 @@ app.get('/ejs', (request, response) => {
     response.render('index');
 })
 app.get('/books', (request, response) => {
-    client.query('SELECT title, author, image_url FROM books;')
+    client.query('SELECT title, author, image_url, id FROM books;')
         .then(results => {
             response.render('index', {books : results.rows});
         });
 });
+
+app.get('/books/:thisId', (request, response) => {
+    client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = ($1);`, [request.params.thisId])
+            .then(results => {
+                response.render('./pages/show', {book : results.rows});
+            });
+});
+
 app.get('*', (request, response) => {
     response.render('./pages/error');
 })
