@@ -19,12 +19,10 @@ client.on('error', error => {
 
 app.use(express.static('./public'));
 
-app.get('/hello', (request, response) => {
-  response.render('index');
+app.get('/', (request, response) => {
+  response.redirect('/books');
 });
-app.get('/ejs', (request, response) => {
-  response.render('index');
-})
+
 app.get('/books', (request, response) => {
   client.query('SELECT title, author, image_url, id FROM books;')
     .then(results => {
@@ -43,7 +41,7 @@ app.post('/add', (request, response) => {
   let values = [title, author, isbn, description, image_url];
 
   return client.query(SQL, values)
-    .then(response.redirect('/books'))
+    .then(response.render('/books'))
     .catch(err => console.log(err, response));
 });
 
@@ -54,7 +52,7 @@ app.get('/books/:thisId', (request, response) => {
     });
 });
 
-app.get('*', (request, response) => {
+app.use('*', (request, response) => {
   response.render('./pages/error');
 })
 app.listen(PORT, () => {

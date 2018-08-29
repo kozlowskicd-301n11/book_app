@@ -17,7 +17,7 @@ img {
     width: 70%;
     margin-top: 10px;
 }
-ul {
+body > ul {
     text-align: center;
     width: 60%;
     background-color: grey;
@@ -26,7 +26,7 @@ ul {
     padding-left: 0px;
     padding-right: 0px;
 }
-ul li {
+body > ul li {
     width: 50%;
     display: inline-block;
     margin: 5px 0px 2px 0px;
@@ -38,11 +38,25 @@ ul li {
     font-size: 15px;
     color: aliceblue;
 }
-ul a {
+body > ul a {
     font-size: 20px;
     text-decoration: none;
     color: white;
     background-color: black;
     padding: 10px;
     line-height: 50px;
+}
+
+.navbar {
+    width: 100%;    
+}
+.navbar ul {
+    float: right;
+    text-align: left;
+}
+.navbar ul li {
+    display: inline-block;
+}
+.clearfix {
+    clear: both;
 }

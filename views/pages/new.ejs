@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add New Book</title>
-</head>
+<%- include('../partials/head') %>
 <body>
-    <section>
-            <form id="create-form" action="/add" method="post">
-                <input type="text" name="title" placeholder="Book Name" value="Book Name">
-                <input type="text" name="author" placeholder="Author" value="Author Name">
-                <input type="text" name="isbn" placeholder="ISBN Number" value="ISBN Number">
-                <textarea name="description" placeholder="Book Description" cols="30" rows="5" value="Book Description"></textarea>
-                <input type="text" name="image_url" placeholder="Book Image Location" value="Book Image Location">
+<%- include('../partials/header-nav') %>
+    <section class="clearfix">
+            <form id="new-book-form" action="/add" method="post">
+                <input type="text" name="title" placeholder="Book Name">
+                <input type="text" name="author" placeholder="Author">
+                <input type="text" name="isbn" placeholder="ISBN Number">
+                <textarea name="description" placeholder="Book Description" cols="30" rows="5"></textarea>
+                <input type="text" name="image_url" placeholder="Book Image Location">
                 <button type="submit">Add Book</button>
               </form>
     </section>
