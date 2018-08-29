@@ -20,28 +20,43 @@ client.on('error', error => {
 app.use(express.static('./public'));
 
 app.get('/hello', (request, response) => {
-    response.render('index');
+  response.render('index');
 });
 app.get('/ejs', (request, response) => {
-    response.render('index');
+  response.render('index');
 })
 app.get('/books', (request, response) => {
-    client.query('SELECT title, author, image_url, id FROM books;')
-        .then(results => {
-            response.render('index', {books : results.rows});
-        });
+  client.query('SELECT title, author, image_url, id FROM books;')
+    .then(results => {
+      response.render('index', {books : results.rows});
+    });
+});
+
+app.get('/add', (request, response) => {
+  response.render('./pages/new');
+});
+
+app.post('/add', (request, response) => {
+  let {title, author, isbn, description, image_url} = request.body;
+
+  let SQL = 'INSERT INTO books(title, author, isbn, description, image_url) VALUES ($1, $2, $3, $4, $5);';
+  let values = [title, author, isbn, description, image_url];
+
+  return client.query(SQL, values)
+    .then(response.redirect('/books'))
+    .catch(err => console.log(err, response));
 });
 
 app.get('/books/:thisId', (request, response) => {
-    client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = ($1);`, [request.params.thisId])
-            .then(results => {
-                response.render('./pages/show', {book : results.rows});
-            });
+  client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = ($1);`, [request.params.thisId])
+    .then(results => {
+      response.render('./pages/show', {book : results.rows});
+    });
 });
 
 app.get('*', (request, response) => {
-    response.render('./pages/error');
+  response.render('./pages/error');
 })
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
+  console.log(`listening on port ${PORT}`);
 });
