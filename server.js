@@ -40,15 +40,17 @@ app.post('/add', (request, response) => {
   let SQL = 'INSERT INTO books(title, author, isbn, description, image_url) VALUES ($1, $2, $3, $4, $5);';
   let values = [title, author, isbn, description, image_url];
 
-  return client.query(SQL, values)
-    .then(response.render('/books'))
-    .catch(err => console.log(err, response));
+  client.query(SQL, values)
+    .then(client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = (SELECT MAX(id) FROM books);`)
+      .then(results => {response.render('./pages/show', {book : results.rows, newBook : 'New book added!!'})})
+      .catch(err => console.log(err, response)));
 });
 
 app.get('/books/:thisId', (request, response) => {
   client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = ($1);`, [request.params.thisId])
     .then(results => {
-      response.render('./pages/show', {book : results.rows});
+      console.log(results.rows);
+      response.render('./pages/show', {book : results.rows, newBook : ''});
     });
 });
 
