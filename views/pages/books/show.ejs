@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head') %>
+<%- include('../../partials/head') %>
 <body>
-<%- include('../partials/header-nav') %>
+<%- include('../../partials/header-nav') %>
     <h1 class="clearfix">Details</h1>
     
-    <%= newBook %>
+    <h3 id="newBook"><%= newBook %></h3>
         <% book.forEach(data => { %>
-            <ul>
+            <ul><% if(data.image_url == '' || data.image_url === 'http://') {data.image_url = 'https://via.placeholder.com/300x150?text=No+Image+Available'} %>
                 <li><img src="<%= data.image_url %>"/></li>
                 <li class="title">Title: <%= data.title  %></li>
                 <li class="author">Author: <%= data.author %></li>
@@ -15,6 +15,6 @@
                 <li>ISBN: <%= data.isbn %></li> 
             </ul>
             <% }) %>
-            <a href="../books">Return to Book List</a>
+<%- include('../../partials/footer') %>
 </body>
 </html>

@@ -14,7 +14,7 @@ h2 {
     background-color: darkslategrey;
 }
 img {
-    width: 40%;
+    max-width: 100%
     padding: 10px;
     margin-top: 10px;
 }
@@ -94,7 +94,11 @@ form { /* syling for the form element */
     color: bisque;
     background-color: rgb(63, 0, 0);
 }
+#newBook {
+    font-size: 24px;
+    font-weight: bold;
+    color: darkgrey;
+    text-align: center;
+}
 .toggleFade {
-    visibility: hidden;
-    background-color: darkred;
 }

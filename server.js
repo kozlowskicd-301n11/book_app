@@ -31,26 +31,27 @@ app.get('/books', (request, response) => {
 });
 
 app.get('/add', (request, response) => {
-  response.render('./pages/new');
+  response.render('./pages/books/new');
 });
 
 app.post('/add', (request, response) => {
   let {title, author, isbn, description, image_url} = request.body;
 
-  let SQL = 'INSERT INTO books(title, author, isbn, description, image_url) VALUES ($1, $2, $3, $4, $5);';
+  let SQL = `INSERT INTO books(title, author, isbn, description, image_url) VALUES ($1, $2, $3, $4, $5);`;
   let values = [title, author, isbn, description, image_url];
 
   client.query(SQL, values)
-    .then(client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = (SELECT MAX(id) FROM books);`)
-      .then(results => {response.render('./pages/show', {book : results.rows, newBook : 'New book added!!'})})
+    .then(client.query(`SELECT title, author, isbn, description, image_url FROM books WHERE id = (SELECT MAX(id) FROM books);`)
+      .then(results => {
+        response.render('./pages/books/show', {book : results.rows, newBook : 'New book added!!'})})
       .catch(err => console.log(err, response)));
 });
 
 app.get('/books/:thisId', (request, response) => {
-  client.query(`SELECT title, author, image_url, description, isbn FROM books WHERE id = ($1);`, [request.params.thisId])
+  client.query(`SELECT title, author, isbn, description, image_url  FROM books WHERE id = ($1);`, [request.params.thisId])
     .then(results => {
       console.log(results.rows);
-      response.render('./pages/show', {book : results.rows, newBook : ''});
+      response.render('./pages/books/show', {book : results.rows, newBook : ''})
     });
 });
 
