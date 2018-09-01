@@ -26,6 +26,8 @@ body > ul {
     margin-right: auto;
     padding-left: 0px;
     padding-right: 0px;
+    border-radius: 25px;
+    border: 2px rgb(63, 0, 0) solid;
 }
 body > ul li {
     width: 50%;
@@ -44,6 +46,7 @@ body > ul a {
     text-decoration: none;
     color: white;
     background-color: black;
+    border-radius: 10px;
     padding: 10px;
     line-height: 50px;
 }
@@ -51,12 +54,22 @@ body > ul a {
 .navbar {
     width: 100%;    
 }
-.navbar ul {
+.navbar ul{
     float: right;
     text-align: left;
+    background-color: rgb(63, 0, 0);
+    padding: 10px 0px;
 }
-.navbar ul li {
+.navbar ul li, .navbar ul li a {
     display: inline-block;
+    color: darkgrey;
+    font-size: 28px;
+    margin: 0px 10px
+}
+#toggle-btn {
+    color: darkgrey;
+    font-size: 28px;
+    margin: 0px 10px;
 }
 .clearfix {
     clear: both;
@@ -80,4 +93,8 @@ form { /* syling for the form element */
     font-size: 20px;
     color: bisque;
     background-color: rgb(63, 0, 0);
+}
+.toggleFade {
+    visibility: hidden;
+    background-color: darkred;
 }
