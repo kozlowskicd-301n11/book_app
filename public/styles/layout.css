@@ -15,6 +15,7 @@ h2 {
 }
 img {
     width: 40%;
+    padding: 10px;
     margin-top: 10px;
 }
 body > ul {
@@ -59,4 +60,24 @@ body > ul a {
 }
 .clearfix {
     clear: both;
+}
+#new-book-form > * { /* all elements on new-book-form */
+    margin: .1em;
+    width: 40%;
+    display: block;
+    padding: .1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+form { /* syling for the form element */
+     background-color: rgb(63, 0, 0);
+     width: 80%;
+     display: block;
+     padding-bottom: 2em;
+     margin: 0px 10em;
+}
+#new-book-form > label { /* :label on top */
+    font-size: 20px;
+    color: bisque;
+    background-color: rgb(63, 0, 0);
 }

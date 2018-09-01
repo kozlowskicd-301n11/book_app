@@ -5,11 +5,17 @@
 <%- include('../partials/header-nav') %>
     <section class="clearfix">
             <form id="new-book-form" action="/add" method="post">
+                <label>Add a Book</label>
                 <input type="text" name="title" placeholder="Book Name">
+                <br>
                 <input type="text" name="author" placeholder="Author">
+                <br>
                 <input type="text" name="isbn" placeholder="ISBN Number">
+                <br>
                 <textarea name="description" placeholder="Book Description" cols="30" rows="5"></textarea>
+                <br>
                 <input type="text" name="image_url" placeholder="Book Image Location">
+                <br>
                 <button type="submit">Add Book</button>
               </form>
     </section>
