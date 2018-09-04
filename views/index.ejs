@@ -7,15 +7,16 @@
     <h2>Saved Books</h2>
     <% books.forEach(book => { %>
     <ul>
+            <% if(book.image_url == '' || book.image_url === 'http://') {book.image_url = 'https://via.placeholder.com/300x150?text=No+Image+Available'} %>
         <img src="<%= book.image_url %>"/>
     <br>
         <li class="title"><%= book.title  %></li>
     <br>
         <li class="author"><%= book.author %></li>
-        <li><%= book.id %></li>
     <br>
         <a href="./books/<%= book.id %>">View Details</a>  
     </ul>
     <% }) %>
+    <%- include('./partials/footer') %>
 </body>
 </html>

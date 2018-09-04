@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head') %>
+<body>
+<%- include('../../partials/header-nav') %>
+    <h1 class="clearfix">Details</h1>
+    <h3 id="newBook"></h3>
+<% book.forEach(data => { %>
+    <ul class="clearfix"><% if(data.image_url == '' || data.image_url === 'http://') {data.image_url = 'https://via.placeholder.com/300x150?text=No+Image+Available'} %>
+      <li><img src="<%= data.image_url %>"/></li>
+      <li class="title">Title: <%= data.title  %></li>
+      <li class="author">Author: <%= data.author %></li>
+      <li><%= data.description %></li>
+      <li>ISBN: <%= data.isbn %></li> 
+      <li>
+        <form id="hide-me" action="/add" method="post">
+          <input type="text" name="title" value="<%= data.title %>">
+          <input type="text" name="author" value="<%= data.author %>">
+          <input type="text" name="isbn" value="<%= data.isbn %>">
+          <input type="text" name="image_url" value="<%= data.image_url %>">
+          <textarea name="description" value="<%= data.description %>" cols="30" rows="5"></textarea>
+          <button id="show-me" type="submit">Add to Database</button>
+        </form>
+      </li> 
+    </ul>
+<% }) %>
+<% include ../../partials/footer %>
+  </body>
+</html>

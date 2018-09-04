@@ -1,0 +1,64 @@
+/* Navbar */
+.navbar ul a {
+    font-family: monospace;    
+}
+.navbar ul{
+    text-align: left;
+    background-color: rgb(63, 0, 0);
+    padding: 10px 0px;
+    height: 4em;
+}
+.navbar ul li, .navbar ul li a {
+    display: inline-block;
+    color: darkgrey;
+    font-size: 16px;
+    margin: 0px 3px;
+}
+#toggle-btn {
+    color: darkgrey;
+    font-size: 24px;
+    margin: 0px 8px;
+}
+
+/* Forms */
+#new-book-form > * {
+    margin: .1em;
+    width: 40%;
+    display: block;
+    padding: .1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+#new-book-form, #searchForm { 
+     background-color: rgb(63, 0, 0);
+     width: 80%;
+     display: block;
+     padding-bottom: 2em;
+     margin: 0px auto;
+}
+#new-book-form > label {
+    font-size: 20px;
+    color: bisque;
+    background-color: rgb(63, 0, 0);
+}
+#searchForm {
+    background-color: maroon;
+    border-radius: 10px;
+}
+#searchForm span {
+    color: bisque;
+    font-size: 18px;
+}
+#newBook {
+    font-size: 24px;
+    font-weight: bold;
+    color: darkgrey;
+    text-align: center;
+}
+#hide-me button {
+    display: inline=block;
+    clear: both;
+}
+#hide-me input, #hide-me textarea {
+    display: none;
+  }
