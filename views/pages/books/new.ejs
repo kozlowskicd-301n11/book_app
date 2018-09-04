@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head') %>
+<%- include('../../partials/head') %>
 <body>
-<%- include('../partials/header-nav') %>
+<%- include('../../partials/header-nav') %>
     <section class="clearfix">
             <form id="new-book-form" action="/add" method="post">
                 <label>Add a Book</label>
@@ -14,11 +14,11 @@
                 <br>
                 <textarea name="description" placeholder="Book Description" cols="30" rows="5"></textarea>
                 <br>
-                <input type="text" name="image_url" placeholder="Book Image Location">
-                <label><input type="checkbox" name="image_url" value="noImage">Check box if no image</label> 
+                <input type="text" name="image_url" placeholder="Book Image Location" value="http://">
                 <br>
                 <button type="submit">Add Book</button>
               </form>
     </section>
+<%- include('../../partials/footer') %>
 </body>
 </html>
