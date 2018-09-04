@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head') %>
+<%- include('../partials/head') %>
 <body>
-    <h1>Details</h1>
+<%- include('../partials/header-nav') %>
+    <h1 class="clearfix">Details</h1>
+    
+    <%= newBook %>
         <% book.forEach(data => { %>
             <ul>
                 <li><img src="<%= data.image_url %>"/></li>
-                <li class="title"><%= data.title  %></li>
-                <li class="author"><%= data.author %></li>
+                <li class="title">Title: <%= data.title  %></li>
+                <li class="author">Author: <%= data.author %></li>
                 <li><%= data.description %></li>
-                <li><%= data.isbn %></li> 
+                <li>ISBN: <%= data.isbn %></li> 
             </ul>
             <% }) %>
             <a href="../books">Return to Book List</a>

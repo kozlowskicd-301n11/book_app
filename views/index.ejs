@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head') %>
+<%- include('./partials/head') %>
 <body>
-    <h1>Best Books!</h1>
+    <%- include('./partials/header-nav') %>
+    <h1 class="clearfix">Best Books!</h1>
     <h2>Saved Books</h2>
     <% books.forEach(book => { %>
     <ul>
         <img src="<%= book.image_url %>"/>
+    <br>
         <li class="title"><%= book.title  %></li>
     <br>
         <li class="author"><%= book.author %></li>
+        <li><%= book.id %></li>
     <br>
         <a href="./books/<%= book.id %>">View Details</a>  
     </ul>
