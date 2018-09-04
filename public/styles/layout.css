@@ -1,7 +1,7 @@
 body {
     background-color: darkred;
     width: 100%;
-    
+    text-align: center;
 }
 h1 {
     background-color: black;
@@ -14,7 +14,7 @@ h2 {
     background-color: darkslategrey;
 }
 img {
-    max-width: 100%
+    max-width: 100%;
     padding: 10px;
     margin-top: 10px;
 }
@@ -87,7 +87,7 @@ form { /* syling for the form element */
      width: 80%;
      display: block;
      padding-bottom: 2em;
-     margin: 0px 10em;
+     margin: 0px auto;
 }
 #new-book-form > label { /* :label on top */
     font-size: 20px;
@@ -100,5 +100,7 @@ form { /* syling for the form element */
     color: darkgrey;
     text-align: center;
 }
-.toggleFade {
+#homepage-link {
+    font-size: 20px;
+    color: darkgrey;
 }
